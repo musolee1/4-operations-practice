@@ -117,3 +117,8 @@
     }
   }
   
+  @media (max-width: 600px) {
+    .result {
+        font-size: 20px;  /* Adjust font size for mobile if necessary */
+    }
+}

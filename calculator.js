@@ -2,24 +2,24 @@
 function appendNumber(number) {
     const input = document.getElementById('result-input');
     input.value += number;
-    input.focus();
-  }
-  
-  // Append negative sign
-  function appendNegative() {
+    // No need to focus on the input field
+}
+
+// Append negative sign
+function appendNegative() {
     const input = document.getElementById('result-input');
     if (!input.value.includes('-')) {
-      input.value = '-' + input.value;
+        input.value = '-' + input.value;
     }
-    input.focus();
-  }
-  
-  // Backspace function
-  function backspace() {
+    // No need to focus on the input field
+}
+
+// Backspace function
+function backspace() {
     const input = document.getElementById('result-input');
     input.value = input.value.slice(0, -1);
-    input.focus();
-  }
+    // No need to focus on the input field sss
+}
   
   // Clear input field
   function clearResult() {
