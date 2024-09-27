@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="calculator-container">
+    <!-- Selection for Operation and Range -->
+    <div class="settings">
+      <label for="operation-select">İşlem Seçin</label>
+      <select id="operation-select" class="dropdown colorful">
+        <option value="+">Toplama</option>
+        <option value="-">Çıkarma</option>
+        <option value="x">Çarpma</option>
+      </select>
+
+      <label for="range-select">Üretilecek Sayı Aralığı</label>
+      <select id="range-select" class="dropdown colorful">
+        <option value="1-10">1-10</option>
+        <option value="10-100">10-100</option>
+      </select>
+
+      <label class="checkbox-container">
+        <input type="checkbox" id="allow-negative"> Eksi Sayılara İzin Ver
+      </label>
+    </div>
+
+    <!-- Random numbers and operation display in a single line -->
+    <div class="random-values-row">
+      <button id="random1" class="btn green-btn"></button>
+      <button id="operation" class="btn green-btn">x</button>
+      <button id="random2" class="btn green-btn"></button>
+    </div>
+    
+    <!-- Result input area with Enter button -->
+    <div class="result-area">
+      <input id="result-input" type="text" class="result">
+      <button id="enter-btn" class="btn green-btn" onclick="checkResult()">Enter</button>
+    </div>
+    
+    <!-- Keypad -->
+    <div class="keypad">
+      <!-- Top row with -, ←, and C -->
+      <button class="btn" onclick="appendNegative()">-</button>
+      <button class="btn" onclick="backspace()">←</button>
+      <button class="btn" onclick="clearResult()">C</button>
+      
+      <!-- Number buttons -->
+      <button class="btn" onclick="appendNumber(1)">1</button>
+      <button class="btn" onclick="appendNumber(2)">2</button>
+      <button class="btn" onclick="appendNumber(3)">3</button>
+      <button class="btn" onclick="appendNumber(4)">4</button>
+      <button class="btn" onclick="appendNumber(5)">5</button>
+      <button class="btn" onclick="appendNumber(6)">6</button>
+      <button class="btn" onclick="appendNumber(7)">7</button>
+      <button class="btn" onclick="appendNumber(8)">8</button>
+      <button class="btn" onclick="appendNumber(9)">9</button>
+      
+      <!-- Centered 0 -->
+      <button class="btn zero" onclick="appendNumber(0)">0</button>
+    </div>
+    <div id="message"></div>
+  </div>
+
+  <script src="calculator.js"></script>
+</body>
+</html>
