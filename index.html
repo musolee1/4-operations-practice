@@ -5,62 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random Calculator</title>
   <link rel="stylesheet" href="style.css">
+  
+  <!-- FontAwesome için bağlantı ekleyin -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-DyZQK7nB4i6HDEsJ0FeDAJ0a73SiA1WgYxQRHYh7l3P8Tt79Otu5wxWQ12gBguY0" crossorigin="anonymous" />
 </head>
 <body>
   <div class="calculator-container">
     <!-- Selection for Operation and Range -->
     <div class="settings">
-      <label for="operation-select">İşlem Seçin</label>
-      <select id="operation-select" class="dropdown colorful">
-        <option value="+">Toplama</option>
-        <option value="-">Çıkarma</option>
-        <option value="x">Çarpma</option>
+      <div class="dropdown-container">
+        <label for="operation-select" class="label">İşlem Seçin</label>
+        <select id="operation-select" class="dropdown colorful" aria-label="Select Operation">
+          <option value="+">Toplama</option>
+          <option value="-">Çıkarma</option>
+          <option value="x">Çarpma</option>
       </select>
-
-      <label for="range-select">Üretilecek Sayı Aralığı</label>
-      <select id="range-select" class="dropdown colorful">
-        <option value="1-10">1-10</option>
-        <option value="10-100">10-100</option>
-      </select>
-
-      <label class="checkbox-container">
-        <input type="checkbox" id="allow-negative"> Eksi Sayılara İzin Ver
-      </label>
+      
+      </div>
+      <div class="dropdown-container">
+        <label for="range-select" class="label">Üretilecek Sayı Aralığı</label>
+        <select id="range-select" class="dropdown colorful" aria-label="Select Number Range">
+          <option value="1-10">1-10</option>
+          <option value="10-100">10-100</option>
+        </select>
+      </div>
     </div>
 
-    <!-- Random numbers and operation display in a single line test -->
+    <label class="checkbox-container">
+      <input type="checkbox" id="allow-negative" aria-label="Allow Negative Numbers"> Eksi Sayılara İzin Ver
+    </label>
+
+    <!-- Random numbers and operation display -->
     <div class="random-values-row">
-      <button id="random1" class="btn green-btn"></button>
-      <button id="operation" class="btn green-btn">x</button>
-      <button id="random2" class="btn green-btn"></button>
+        <button id="random1" class="btn green-btn" aria-label="First Random Number"></button>
+        <button id="operation" class="btn green-btn" aria-label="Selected Operation">+</button> <!-- Default operation -->
+        <button id="random2" class="btn green-btn" aria-label="Second Random Number"></button>
     </div>
     
-    <!-- Result input area with Enter button sss-->
+    <!-- Result input and Enter button -->
     <div class="result-area">
-      <input id="result-input" type="text" class="result" readonly>
-      <button id="enter-btn" class="btn green-btn" onclick="checkResult()">Enter</button>
+      <input id="result-input" type="text" class="result" readonly aria-label="Result Input">
+      <button id="enter-btn" class="btn green-btn" onclick="checkResult()" aria-label="Submit Result">Cevapla</button>
+      
+      <!-- Cevabı gör butonu ve göz ikonu -->
+      <div id="show-answer-btn" class="show-answer">
+          Cevabı Gör
+          <i class="fas fa-eye"></i>
+      </div>
+      <div id="correct-answer"></div> <!-- Doğru cevap burada gösterilecek -->
     </div>
     
     <!-- Keypad -->
     <div class="keypad">
-      <!-- Top row with -, ←, and C -->
-      <button class="btn" onclick="appendNegative()">-</button>
-      <button class="btn" onclick="backspace()">←</button>
-      <button class="btn" onclick="clearResult()">C</button>
-      
-      <!-- Number buttons -->
-      <button class="btn" onclick="appendNumber(1)">1</button>
-      <button class="btn" onclick="appendNumber(2)">2</button>
-      <button class="btn" onclick="appendNumber(3)">3</button>
-      <button class="btn" onclick="appendNumber(4)">4</button>
-      <button class="btn" onclick="appendNumber(5)">5</button>
-      <button class="btn" onclick="appendNumber(6)">6</button>
-      <button class="btn" onclick="appendNumber(7)">7</button>
-      <button class="btn" onclick="appendNumber(8)">8</button>
-      <button class="btn" onclick="appendNumber(9)">9</button>
-      
-      <!-- Centered 0 -->
-      <button class="btn zero" onclick="appendNumber(0)">0</button>
+      <button class="btn" onclick="appendNegative()" aria-label="Negative">-</button>
+      <button class="btn" onclick="backspace()" aria-label="Backspace">←</button>
+      <button class="btn" onclick="clearResult()" aria-label="Clear">C</button>
+
+      <button class="btn" onclick="appendNumber(1)" aria-label="1">1</button>
+      <button class="btn" onclick="appendNumber(2)" aria-label="2">2</button>
+      <button class="btn" onclick="appendNumber(3)" aria-label="3">3</button>
+      <button class="btn" onclick="appendNumber(4)" aria-label="4">4</button>
+      <button class="btn" onclick="appendNumber(5)" aria-label="5">5</button>
+      <button class="btn" onclick="appendNumber(6)" aria-label="6">6</button>
+      <button class="btn" onclick="appendNumber(7)" aria-label="7">7</button>
+      <button class="btn" onclick="appendNumber(8)" aria-label="8">8</button>
+      <button class="btn" onclick="appendNumber(9)" aria-label="9">9</button>
+
+      <button class="btn zero" onclick="appendNumber(0)" aria-label="0">0</button>
     </div>
     <div id="message"></div>
   </div>

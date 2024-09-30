@@ -1,124 +1,188 @@
 /* General Styles */
 .calculator-container {
-    max-width: 300px;
-    margin: 0 auto;
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
-  
+  max-width: 350px;
+  margin: 20px auto;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.settings {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48%;
+}
+
+.label {
+  font-size: 14px;
+  margin-bottom: 8px;
+  text-align: left;
+  width: 100%;
+}
+
+.dropdown {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  width: 100%;
+  background-color: #ffffff;
+  color: #495057;
+}
+
+.colorful {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  color: #495057;
+}
+
+.checkbox-container {
+  font-size: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Softer green tone for buttons */
+.green-btn {
+  width: 100%; /* Butonları tam genişlikte yap */
+  padding: 15px;
+  font-size: 24px;
+  background-color: green; /* Sade yeşil ton */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.green-btn:hover {
+  background-color: darkgreen; /* Hover için daha koyu yeşil ton */
+}
+
+/* Random values and operation */
+.random-values-row {
+  display: flex;
+  justify-content: space-between; /* Butonlar arasında boşluk bırak */
+  margin-bottom: 30px;
+}
+
+.random-values-row .btn {
+  width: 30%; /* Her bir butonun genişliği */
+  padding: 15px; /* Butonların içindeki boşluk */
+  font-size: 24px; /* Buton yazı boyutu */
+  border-radius: 8px; /* Butonların kenar yuvarlama */
+}
+
+
+/* Result Input and Submit Button */
+.result-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.result {
+  padding: 15px;
+  background-color: #e9f7ef;
+  font-size: 22px;
+  text-align: right;
+  border: 2px solid #7bc96f; /* Başlangıçta yeşil kenarlık */
+  border-radius: 8px;
+  width: 100%; /* Genişliği tam genişlik olacak */
+  margin-bottom: 12px;
+  transition: border-color 0.3s ease; /* Kenarlık rengi geçişi */
+}
+
+/* Kırmızı border ve titreme efekti */
+.result.wrong {
+  border-color: red; /* Kırmızı kenarlık */
+  animation: shake 0.3s; /* Titreme efekti */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Cevabı gör butonu ve göz ikonu */
+#show-answer-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #495057;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#show-answer-btn i {
+  margin-left: 5px; /* Göz ikonunun sağında boşluk */
+}
+
+#correct-answer {
+  display: none;
+  font-size: 16px;
+  color: green;
+  margin-top: 5px;
+}
+
+/* Keypad Styles */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 sütunlu ızgara yapısı */
+  grid-gap: 10px; /* Butonlar arasındaki boşluk */
+}
+
+.btn {
+  background-color: #e57373; /* Daha soft kırmızı ton */
+  color: white;
+  padding: 15px; /* Butonların içindeki boşluk */
+  font-size: 24px; /* Buton yazı boyutu */
+  border-radius: 8px; /* Butonların kenar yuvarlama */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Buton üzerine gelindiğinde rengi değişim */
+}
+
+.btn:hover {
+  background-color: #d84343; /* Hover için hafif daha koyu ton */
+}
+
+.zero {
+  grid-column: span 3; /* 0 butonunu 3 sütun boyunca yay */
+}
+
+.message {
+  color: #ff073a;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
   .settings {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    width: 100%;
+      flex-direction: column;
+      align-items: center;
   }
-  
-  .dropdown {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  
-  .colorful {
-    background-color: #f0f0f0;
-    color: #333;
-    border: 1px solid #888;
-  }
-  
-  .checkbox-container {
-    font-size: 16px;
-    margin-bottom: 15px;
-    text-align: center;
-    width: 100%;
-  }
-  
-  /* Random numbers and operator in a row */
-  .random-values-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-  }
-  
-  .random-values-row .green-btn {
-    width: 30%;
-    padding: 15px;
-    font-size: 24px;
-    background-color: green;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  /* Result Input and Enter Button */
-  .result-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-  
   .result {
-    padding: 15px;
-    background-color: lightgreen;
-    font-size: 24px;
-    text-align: right;
-    border: 2px solid black;
-    width: 100%;
-    margin-bottom: 10px;
+      font-size: 20px;
   }
-  
-  .green-btn {
-    background-color: green;
-    color: white;
-    padding: 15px;
-    font-size: 24px;
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  #enter-btn {
+      font-size: 20px;
   }
-  
-  /* Keypad Styles */
-  .keypad {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-  }
-  
-  .btn {
-    background-color: red;
-    color: white;
-    padding: 15px;
-    font-size: 24px;
-    width: 100%;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .zero {
-    grid-column: 2 / 3;
-  }
-  
-  .message {
-    color: red;
-    font-weight: bold;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 600px) {
-    .settings {
-      width: 100%;
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .result {
-        font-size: 20px;  /* Adjust font size for mobile if necessary */
-    }
 }
